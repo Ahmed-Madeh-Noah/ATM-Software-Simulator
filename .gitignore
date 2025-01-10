@@ -1,7 +1,7 @@
 # Clion Folders
 .idea
 cmake-build-debug
-tests/libs/googletest
+tests/libs/googletest/*
 
 # Prerequisites
 *.d
