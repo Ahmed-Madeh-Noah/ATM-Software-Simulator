@@ -2,8 +2,7 @@
 .idea
 cmake-build-debug
 cmake-build-debug-coverage
-tests/libs/googletest/*
-!tests/libs/googletest/
+/tests/libs/googletest/*
 
 # Prerequisites
 *.d
