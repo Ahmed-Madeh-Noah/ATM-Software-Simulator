@@ -15,7 +15,9 @@ struct Account {
 
 extern Account accounts[];
 
-string input(const string &prompt);
+bool validate_int(const string &input);
+
+string input(const string &prompt, const string &data_type = "string");
 
 bool get_user(const string &username, int &pin);
 
