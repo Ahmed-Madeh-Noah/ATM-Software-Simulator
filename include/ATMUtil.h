@@ -13,4 +13,6 @@ void display_menu(const string operations[6]);
 
 int show_main_menu();
 
+void check_balance(const Account &curr_user);
+
 #endif //ATMUTIL_H

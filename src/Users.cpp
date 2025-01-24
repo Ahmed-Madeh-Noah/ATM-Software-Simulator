@@ -40,3 +40,24 @@ bool get_user(Account &curr_user) {
     }
     return false;
 }
+
+string remove_trailing_zeros(const double &balance) {
+    string output = to_string(balance);
+    for (size_t index = output.size() - 1; index > output.find('.') + 1; index--) {
+        if (output[index] == '0')
+            output.erase(index, 1);
+        else
+            break;
+    }
+    return output;
+}
+
+string convert_to_thousand_separated(const double &balance) {
+    string string_balance = remove_trailing_zeros(balance);
+    size_t dotPos = string_balance.find('.');
+    for (int index = dotPos; index > 0; index--) {
+        if (index && index != dotPos && (dotPos - index) % 3 == 0)
+            string_balance.insert(index, ",");
+    }
+    return string_balance;
+}

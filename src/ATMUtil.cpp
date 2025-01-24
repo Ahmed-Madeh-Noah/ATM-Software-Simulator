@@ -62,3 +62,8 @@ int show_main_menu() {
     }
     return opNum;
 }
+
+void check_balance(const Account &curr_user) {
+    const string balance = convert_to_thousand_separated(curr_user.balance);
+    printf("Your credit is %s EGP\n", balance.c_str());
+}

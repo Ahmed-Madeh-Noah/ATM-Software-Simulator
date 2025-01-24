@@ -21,4 +21,8 @@ string input(const string &prompt, const string &data_type = "string");
 
 bool get_user(Account &curr_user);
 
+string remove_trailing_zeros(const string &balance);
+
+string convert_to_thousand_separated(const double &balance);
+
 #endif // USERS_H

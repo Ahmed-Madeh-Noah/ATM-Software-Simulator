@@ -9,6 +9,8 @@ int main() {
                 const int operation = show_main_menu();
                 if (operation == 0)
                     break;
+                else if (operation == 1)
+                    check_balance(currUser);
             }
         }
     }
