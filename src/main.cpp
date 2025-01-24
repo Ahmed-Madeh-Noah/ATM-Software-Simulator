@@ -11,6 +11,12 @@ int main() {
                     break;
                 else if (operation == 1)
                     check_balance(currUser);
+                else if (operation == 2)
+                    withdraw_cash(currUser.balance);
+                for (Account &account: accounts) {
+                    printf("Account username: %s, Account PIN: %d, Account balance: %f\n", account.username,
+                           account.pin, account.balance);
+                }
             }
         }
     }

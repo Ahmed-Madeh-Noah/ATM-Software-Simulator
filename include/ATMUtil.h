@@ -15,4 +15,6 @@ int show_main_menu();
 
 void check_balance(const Account &curr_user);
 
+void withdraw_cash(double &balance);
+
 #endif //ATMUTIL_H

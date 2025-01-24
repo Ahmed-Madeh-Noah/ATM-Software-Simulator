@@ -13,7 +13,7 @@ struct Account {
     double balance;
 };
 
-extern Account accounts[];
+extern Account accounts[3];
 
 bool validate_int(const string &input);
 

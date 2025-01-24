@@ -67,3 +67,17 @@ void check_balance(const Account &curr_user) {
     const string balance = convert_to_thousand_separated(curr_user.balance);
     printf("Your credit is %s EGP\n", balance.c_str());
 }
+
+void withdraw_cash(double &balance) {
+    const int amount = stoi(input("the amount to withdraw (0 to exist)", "int"));
+    if (amount != 0) {
+        if (amount > balance)
+            printf("Not enough balance to withdraw\n");
+        else if (amount % 50)
+            printf("Only 50, 100, and 200 EGP bills are available\n");
+        else {
+            printf("Successfully withdrawn %s EGP balance\n", convert_to_thousand_separated(amount).c_str());
+            balance -= amount;
+        }
+    }
+}
