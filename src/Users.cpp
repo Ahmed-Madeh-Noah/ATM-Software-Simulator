@@ -31,10 +31,10 @@ string input(const string &prompt, const string &data_type) {
     return output;
 }
 
-bool get_user(const string &username, int &pin) {
+bool get_user(Account &curr_user) {
     for (Account &account: accounts) {
-        if (account.username == username) {
-            pin = account.pin;
+        if (account.username == curr_user.username) {
+            curr_user = account;
             return true;
         }
     }

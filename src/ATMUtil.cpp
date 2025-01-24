@@ -4,16 +4,16 @@ int add(int a, int b) {
     return a + b;
 }
 
-bool login(string &username, int &pin) {
+bool login(Account &curr_user) {
     constexpr int maxPinTrials = 3;
-    int inputPin = 1, pinTrials = 0;
-    username = input("your username");
-    if (!get_user(username, pin)) {
+    int pin = 1, pinTrials = 0;
+    curr_user.username = input("your username");
+    if (!get_user(curr_user)) {
         printf("Invalid username\n");
         return false;
     }
     do {
-        if (!inputPin)
+        if (!pin)
             return false;
         if (pinTrials >= maxPinTrials) {
             printf("Maximum PIN entry attempts exceeded\n");
@@ -21,9 +21,9 @@ bool login(string &username, int &pin) {
         }
         if (pinTrials)
             printf("#%d PIN entry attempts left out of #%d\n", maxPinTrials - pinTrials, maxPinTrials);
-        inputPin = stoi(input("your pin (0 to exit)", "int"));
+        pin = stoi(input("your pin (0 to exit)", "int"));
         pinTrials++;
-    } while (inputPin != pin);
+    } while (pin != curr_user.pin);
     return true;
 }
 

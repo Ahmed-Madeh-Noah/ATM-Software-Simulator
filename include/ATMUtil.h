@@ -5,7 +5,7 @@
 
 int add(int a, int b);
 
-bool login(string &username, int &pin);
+bool login(Account &curr_user);
 
 size_t get_max_string_length(const string operations[6]);
 

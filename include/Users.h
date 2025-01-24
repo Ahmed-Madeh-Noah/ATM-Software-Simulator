@@ -19,6 +19,6 @@ bool validate_int(const string &input);
 
 string input(const string &prompt, const string &data_type = "string");
 
-bool get_user(const string &username, int &pin);
+bool get_user(Account &curr_user);
 
 #endif // USERS_H
