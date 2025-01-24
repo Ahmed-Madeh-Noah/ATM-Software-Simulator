@@ -1,9 +1,8 @@
 #ifndef ATMUTIL_H
 #define ATMUTIL_H
-#include <iostream>
 
-using namespace std;
+#include "Users.h"
 
-int add(int, int);
+int add(int a, int b);
 
 #endif //ATMUTIL_H

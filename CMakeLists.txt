@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.30)
-
+cmake_minimum_required(VERSION 3.10)
 project(ATM_Software_Simulator)
 
-enable_testing()
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_CXX_STANDARD 26)
-
+# Add source and test directories
 add_subdirectory(src)
 add_subdirectory(tests)

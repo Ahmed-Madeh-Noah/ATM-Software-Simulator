@@ -1,15 +1,8 @@
 #include <gtest/gtest.h>
 #include "ATMUtil.h"
 
-TEST(Add, PostiveNumbers) {
-    EXPECT_EQ(add(10, 1), 11);
-}
-
-TEST(Add, NegativeNumbers) {
-    EXPECT_EQ(add(-11, -2), -13);
-}
-
-int main() {
-    ::testing::InitGoogleTest();
-    return RUN_ALL_TESTS();
+TEST(ATMUtilTest, AddTest) {
+    EXPECT_EQ(add(2, 3), 5);
+    EXPECT_EQ(add(-1, 1), 0);
+    EXPECT_EQ(add(0, 0), 0);
 }

@@ -1,12 +1,18 @@
-project(Google_tests)
-
+# Fetch GoogleTest
 add_subdirectory(libs/googletest)
+include(GoogleTest)
 
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-include_directories(${CMAKE_SOURCE_DIR}/include)
+# Enable testing
+enable_testing()
 
-add_executable(Google_Tests_run test_ATMUtil.cpp)
+# Add test executable
+add_executable(ATMUtil_Test test_ATMUtil.cpp)
+add_executable(Users_Test test_Users.cpp)
 
-target_link_libraries(Google_Tests_run ATMUtil)
+# Link libraries
+target_link_libraries(ATMUtil_Test ATMUtil gtest gtest_main)
+target_link_libraries(Users_Test Users gtest gtest_main)
 
-target_link_libraries(Google_Tests_run gtest gtest_main)
+# Discover tests
+gtest_discover_tests(ATMUtil_Test)
+gtest_discover_tests(Users_Test)

@@ -1,9 +1,10 @@
 # Clion Folders
 .idea
+build
 cmake-build-debug
 cmake-build-debug-coverage
 tests/libs/googletest/*
-!tests/libs/googletests/.gitkeep
+!tests/libs/googletest/.gitkeep
 
 # Prerequisites
 *.d
