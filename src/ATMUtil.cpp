@@ -4,27 +4,27 @@ int add(int a, int b) {
     return a + b;
 }
 
-bool login(Account &curr_user) {
+Account *login() {
     constexpr int maxPinTrials = 3;
     int pin = 1, pinTrials = 0;
-    curr_user.username = input("your username");
-    if (!get_user(curr_user)) {
+    auto *curr_user = get_user(input("your username"));
+    if (!curr_user) {
         printf("Invalid username\n");
-        return false;
+        return nullptr;
     }
     do {
         if (!pin)
-            return false;
+            return nullptr;
         if (pinTrials >= maxPinTrials) {
             printf("Maximum PIN entry attempts exceeded\n");
-            return false;
+            return nullptr;
         }
         if (pinTrials)
             printf("#%d PIN entry attempts left out of #%d\n", maxPinTrials - pinTrials, maxPinTrials);
         pin = stoi(input("your pin (0 to exit)", "int"));
         pinTrials++;
-    } while (pin != curr_user.pin);
-    return true;
+    } while (pin != curr_user->pin);
+    return curr_user;
 }
 
 size_t get_max_string_length(const string operations[6]) {
@@ -63,21 +63,21 @@ int show_main_menu() {
     return opNum;
 }
 
-void check_balance(const Account &curr_user) {
-    const string balance = convert_to_thousand_separated(curr_user.balance);
-    printf("Your credit is %s EGP\n", balance.c_str());
+void check_balance(const Account *const curr_user) {
+    const string string_balance = convert_to_thousand_separated(curr_user->balance);
+    printf("Your credit is %s EGP\n", string_balance.c_str());
 }
 
-void withdraw_cash(double &balance) {
+void withdraw_cash(Account *const curr_user) {
     const int amount = stoi(input("the amount to withdraw (0 to exist)", "int"));
     if (amount != 0) {
-        if (amount > balance)
+        if (amount > curr_user->balance)
             printf("Not enough balance to withdraw\n");
         else if (amount % 50)
             printf("Only 50, 100, and 200 EGP bills are available\n");
         else {
             printf("Successfully withdrawn %s EGP balance\n", convert_to_thousand_separated(amount).c_str());
-            balance -= amount;
+            curr_user->balance -= amount;
         }
     }
 }

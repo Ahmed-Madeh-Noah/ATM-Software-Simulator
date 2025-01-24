@@ -31,14 +31,11 @@ string input(const string &prompt, const string &data_type) {
     return output;
 }
 
-bool get_user(Account &curr_user) {
-    for (Account &account: accounts) {
-        if (account.username == curr_user.username) {
-            curr_user = account;
-            return true;
-        }
-    }
-    return false;
+Account *get_user(const string &username) {
+    for (Account &account: accounts)
+        if (account.username == username)
+            return &account;
+    return nullptr;
 }
 
 string remove_trailing_zeros(const double &balance) {
@@ -56,7 +53,7 @@ string convert_to_thousand_separated(const double &balance) {
     string string_balance = remove_trailing_zeros(balance);
     size_t dotPos = string_balance.find('.');
     for (int index = dotPos; index > 0; index--) {
-        if (index && index != dotPos && (dotPos - index) % 3 == 0)
+        if (index != dotPos && (dotPos - index) % 3 == 0)
             string_balance.insert(index, ",");
     }
     return string_balance;

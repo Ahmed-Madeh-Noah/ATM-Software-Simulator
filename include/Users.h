@@ -19,9 +19,9 @@ bool validate_int(const string &input);
 
 string input(const string &prompt, const string &data_type = "string");
 
-bool get_user(Account &curr_user);
+Account *get_user(const string &username);
 
-string remove_trailing_zeros(const string &balance);
+string remove_trailing_zeros(const double &balance);
 
 string convert_to_thousand_separated(const double &balance);
 
