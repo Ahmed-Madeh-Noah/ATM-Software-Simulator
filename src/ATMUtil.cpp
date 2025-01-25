@@ -21,7 +21,7 @@ Account *login() {
         }
         if (pinTrials)
             printf("#%d PIN entry attempts left out of #%d\n", maxPinTrials - pinTrials, maxPinTrials);
-        pin = stoi(input("your pin (0 to exit)", "int"));
+        pin = stoi(input("your PIN (0 to exit)", "int"));
         pinTrials++;
     } while (pin != curr_user->pin);
     return curr_user;
@@ -94,7 +94,7 @@ void deposit_cash(Account *const curr_user) {
     }
 }
 
-void transfer_balance(Account *curr_user) {
+void transfer_balance(Account *const curr_user) {
     const string recipient_username = input("the username of the recipient (0 to exit)");
     if (recipient_username != "0") {
         auto *const recipient = get_user(recipient_username);
@@ -118,4 +118,22 @@ void transfer_balance(Account *curr_user) {
             }
         }
     }
+}
+
+bool change_pin(Account *const curr_user) {
+    int oldPin, newPin, confirmationPin;
+    if (change_pin_inputs(oldPin)) {
+        if (oldPin != curr_user->pin)
+            printf("Wrong old PIN. Exiting ...\n");
+        else {
+            if (change_pin_inputs(newPin, "new") && change_pin_inputs(confirmationPin, "confirmation")) {
+                if (newPin == confirmationPin)
+                    curr_user->pin = newPin;
+                else
+                    printf("New PIN and the confirmation PIN do not match\n");
+            }
+            return true;
+        }
+    }
+    return false;
 }

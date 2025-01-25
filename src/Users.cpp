@@ -58,3 +58,20 @@ string convert_to_thousand_separated(const double &balance) {
     }
     return string_balance;
 }
+
+bool change_pin_inputs(int &pin, const string &needed_pin) {
+    if (needed_pin == "old")
+        pin = stoi(input("your old PIN (0 to exist)", "int"));
+    else if (needed_pin == "new")
+        pin = stoi(input("your new PIN (0 to exist)", "int"));
+    else if (needed_pin == "confirmation")
+        pin = stoi(input("your new PIN again for confirmation (0 to exist)", "int"));
+    if (!pin) {
+        if (needed_pin == "new")
+            printf("This is treated as exiting not a new PIN\n");
+        else if (needed_pin == "confirmation")
+            printf("This is treated as exiting not a new PIN confirmation\n");
+        return false;
+    }
+    return true;
+}

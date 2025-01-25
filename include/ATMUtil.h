@@ -21,4 +21,6 @@ void deposit_cash(Account *curr_user);
 
 void transfer_balance(Account *curr_user);
 
+bool change_pin(Account *curr_user);
+
 #endif //ATMUTIL_H

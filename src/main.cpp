@@ -17,6 +17,10 @@ int main() {
                     deposit_cash(currUser);
                 else if (operation == 4)
                     transfer_balance(currUser);
+                else if (operation == 5) {
+                    if (!change_pin(currUser))
+                        break;
+                }
             }
         }
     }

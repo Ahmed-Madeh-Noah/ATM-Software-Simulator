@@ -25,4 +25,6 @@ string remove_trailing_zeros(const double &balance);
 
 string convert_to_thousand_separated(const double &balance);
 
+bool change_pin_inputs(int &pin, const string &needed_pin = "old");
+
 #endif // USERS_H
