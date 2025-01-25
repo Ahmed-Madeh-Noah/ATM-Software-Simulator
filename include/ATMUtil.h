@@ -17,4 +17,6 @@ void check_balance(const Account *curr_user);
 
 void withdraw_cash(Account *curr_user);
 
+void deposit_cash(Account *curr_user);
+
 #endif //ATMUTIL_H

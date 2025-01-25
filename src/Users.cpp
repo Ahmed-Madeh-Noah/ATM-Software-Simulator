@@ -21,7 +21,7 @@ string input(const string &prompt, const string &data_type) {
     printf("Enter %s:", prompt.c_str());
     getline(cin, output);
     if (output.empty()) {
-        printf("Cannot accept empty input\n");
+        printf("Cannot accept an empty input\n");
         return input(prompt, data_type);
     }
     if (data_type == "int" && !validate_int(output)) {

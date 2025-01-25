@@ -13,6 +13,8 @@ int main() {
                     check_balance(currUser);
                 else if (operation == 2)
                     withdraw_cash(currUser);
+                else if (operation == 3)
+                    deposit_cash(currUser);
             }
         }
     }

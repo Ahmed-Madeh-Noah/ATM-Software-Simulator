@@ -81,3 +81,15 @@ void withdraw_cash(Account *const curr_user) {
         }
     }
 }
+
+void deposit_cash(Account *const curr_user) {
+    const int amount = stoi(input("the amount to deposit (0 to exist)", "int"));
+    if (amount != 0) {
+        if (amount % 50)
+            printf("Only 50, 100, and 200 EGP bills are allowed\n");
+        else {
+            printf("Successfully deposited %s EGP balance\n", convert_to_thousand_separated(amount).c_str());
+            curr_user->balance += amount;
+        }
+    }
+}
