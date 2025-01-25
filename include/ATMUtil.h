@@ -19,4 +19,6 @@ void withdraw_cash(Account *curr_user);
 
 void deposit_cash(Account *curr_user);
 
+void transfer_balance(Account *curr_user);
+
 #endif //ATMUTIL_H

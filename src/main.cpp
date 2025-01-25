@@ -15,6 +15,8 @@ int main() {
                     withdraw_cash(currUser);
                 else if (operation == 3)
                     deposit_cash(currUser);
+                else if (operation == 4)
+                    transfer_balance(currUser);
             }
         }
     }

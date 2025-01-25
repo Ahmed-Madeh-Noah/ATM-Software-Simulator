@@ -7,7 +7,7 @@ int add(int a, int b) {
 Account *login() {
     constexpr int maxPinTrials = 3;
     int pin = 1, pinTrials = 0;
-    auto *curr_user = get_user(input("your username"));
+    auto *const curr_user = get_user(input("your username"));
     if (!curr_user) {
         printf("Invalid username\n");
         return nullptr;
@@ -90,6 +90,32 @@ void deposit_cash(Account *const curr_user) {
         else {
             printf("Successfully deposited %s EGP balance\n", convert_to_thousand_separated(amount).c_str());
             curr_user->balance += amount;
+        }
+    }
+}
+
+void transfer_balance(Account *curr_user) {
+    const string recipient_username = input("the username of the recipient (0 to exit)");
+    if (recipient_username != "0") {
+        auto *const recipient = get_user(recipient_username);
+        if (!recipient) {
+            printf("Invalid username\n");
+            return;
+        }
+        if (curr_user->username == recipient_username) {
+            printf("Cannot transfer balance to yourself\n");
+            return;
+        }
+        const int amount = stoi(input("the amount to transfer (0 to exist)", "int"));
+        if (amount != 0) {
+            if (amount > curr_user->balance)
+                printf("Not enough balance to transfer\n");
+            else {
+                printf("Successfully transferred %s EGP balance to %s\n",
+                       convert_to_thousand_separated(amount).c_str(), recipient->username.c_str());
+                curr_user->balance -= amount;
+                recipient->balance += amount;
+            }
         }
     }
 }
