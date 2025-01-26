@@ -3,8 +3,6 @@
 build
 cmake-build-debug
 cmake-build-debug-coverage
-tests/libs/googletest/*
-!tests/libs/googletest/.gitkeep
 
 # Prerequisites
 *.d
