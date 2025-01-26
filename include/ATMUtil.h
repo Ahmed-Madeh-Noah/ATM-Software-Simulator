@@ -1,7 +1,7 @@
 #ifndef ATMUTIL_H
 #define ATMUTIL_H
 
-#include "Users.h"
+#include "User.h"
 
 int add(int a, int b);
 
