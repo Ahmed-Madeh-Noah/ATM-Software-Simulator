@@ -1,5 +1,4 @@
-#include "User.h"
-
+#include "User.hpp"
 #include <algorithm>
 
 int subtract(int a, int b) {

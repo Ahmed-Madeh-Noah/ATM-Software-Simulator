@@ -1,5 +1,5 @@
-#ifndef USERS_H
-#define USERS_H
+#ifndef USERS_HPP
+#define USERS_HPP
 
 #include <iostream>
 
@@ -27,4 +27,4 @@ string convert_to_thousand_separated(const double &balance);
 
 bool change_pin_inputs(int &pin, const string &needed_pin = "old");
 
-#endif // USERS_H
+#endif // USERS_HPP

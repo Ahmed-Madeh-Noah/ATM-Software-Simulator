@@ -1,7 +1,7 @@
-#ifndef ATMUTIL_H
-#define ATMUTIL_H
+#ifndef ATMUTIL_HPP
+#define ATMUTIL_HPP
 
-#include "User.h"
+#include "User.hpp"
 
 int add(int a, int b);
 
@@ -23,4 +23,4 @@ void transfer_balance(Account *curr_user);
 
 bool change_pin(Account *curr_user);
 
-#endif //ATMUTIL_H
+#endif //ATMUTIL_HPP
