@@ -1,7 +1,7 @@
 #ifndef ATMUTIL_HPP
 #define ATMUTIL_HPP
 
-#include "User.hpp"
+#include "User.h"
 
 int add(int a, int b);
 
