@@ -1,7 +1,7 @@
 #include "User.hpp"
 #include <algorithm>
 
-int subtract(int a, int b) {
+int subtract(const int a, const int b) {
     return a - b;
 }
 

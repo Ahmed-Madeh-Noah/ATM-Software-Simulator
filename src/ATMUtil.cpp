@@ -1,11 +1,10 @@
 #include "ATMUtil.hpp"
 
-int add(int a, int b) {
+int add(const int a, const int b) {
     return a + b;
 }
 
 Account *login() {
-    constexpr int maxPinTrials = 3;
     int pin = 1, pinTrials = 0;
     auto *const curr_user = get_user(input("your username"));
     if (!curr_user) {
@@ -13,6 +12,7 @@ Account *login() {
         return nullptr;
     }
     do {
+        constexpr int maxPinTrials = 3;
         if (!pin)
             return nullptr;
         if (pinTrials >= maxPinTrials) {
@@ -121,11 +121,12 @@ void transfer_balance(Account *const curr_user) {
 }
 
 bool change_pin(Account *const curr_user) {
-    int oldPin, newPin, confirmationPin;
+    int oldPin;
     if (change_pin_inputs(oldPin)) {
         if (oldPin != curr_user->pin)
             printf("Wrong old PIN. Exiting ...\n");
         else {
+            int newPin, confirmationPin;
             if (change_pin_inputs(newPin, "new") && change_pin_inputs(confirmationPin, "confirmation")) {
                 if (newPin == confirmationPin)
                     curr_user->pin = newPin;
