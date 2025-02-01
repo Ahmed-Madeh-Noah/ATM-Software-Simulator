@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "ATMUtil.h"
+#include "ATMUtil.hpp"
 
 TEST(ATMUtilTest, AddTest) {
     EXPECT_EQ(add(2, 3), 5);

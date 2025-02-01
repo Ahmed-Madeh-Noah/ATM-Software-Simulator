@@ -1,4 +1,5 @@
-#include "User.h"
+#include "User.hpp"
+#include <algorithm>
 
 int subtract(const int a, const int b) {
     return a - b;
