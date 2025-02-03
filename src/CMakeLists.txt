@@ -1,10 +1,10 @@
-# Create two separate libraries
-add_library(ATMUtil STATIC ATMUtil.cpp)
+# Create the User library
 add_library(User STATIC User.cpp)
-
-# Include directories for headers
-target_include_directories(ATMUtil PUBLIC ../include)
 target_include_directories(User PUBLIC ../include)
+
+# Create the ATMUtil library
+add_library(ATMUtil STATIC ATMUtil.cpp)
+target_include_directories(ATMUtil PUBLIC ../include)
 
 # Create main executable
 add_executable(${PROJECT_NAME} main.cpp)
