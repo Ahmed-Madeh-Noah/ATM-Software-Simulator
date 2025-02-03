@@ -7,7 +7,7 @@ target_include_directories(ATMUtil PUBLIC ../include)
 target_include_directories(User PUBLIC ../include)
 
 # Create main executable
-add_executable(ATM_Software_Simulator main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
 # Link libraries to main executable
-target_link_libraries(ATM_Software_Simulator ATMUtil User)
+target_link_libraries(${PROJECT_NAME} ATMUtil User)
