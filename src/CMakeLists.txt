@@ -1,6 +1,6 @@
 # Create two separate libraries
-add_library(ATMUtil STATIC ../include/ATMUtil.h ATMUtil.cpp)
-add_library(User STATIC ../include/User.h User.cpp)
+add_library(ATMUtil STATIC ATMUtil.cpp)
+add_library(User STATIC User.cpp)
 
 # Include directories for headers
 target_include_directories(ATMUtil PUBLIC ../include)
