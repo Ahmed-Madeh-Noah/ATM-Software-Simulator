@@ -1,9 +1,10 @@
+# Disable GoogleTest optional features
+set(BUILD_GMOCK OFF CACHE BOOL "Disable building googlemock" FORCE)
+set(INSTALL_GTEST OFF CACHE BOOL "Disable installation of googletest" FORCE)
+
 # Fetch GoogleTest
 add_subdirectory(libs/googletest)
 include(GoogleTest)
-
-# Enable testing
-enable_testing()
 
 # Add the User test
 add_executable(User_Test User_Test.cpp)
