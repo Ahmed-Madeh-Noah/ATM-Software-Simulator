@@ -3,7 +3,7 @@ set(BUILD_GMOCK OFF CACHE BOOL "Disable building googlemock" FORCE)
 set(INSTALL_GTEST OFF CACHE BOOL "Disable installation of googletest" FORCE)
 
 # Fetch GoogleTest
-add_subdirectory(libs/googletest)
+add_subdirectory(external/googletest)
 include(GoogleTest)
 
 # Add the User test
