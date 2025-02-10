@@ -27,7 +27,7 @@ Account *login() {
     return curr_user;
 }
 
-size_t get_max_string_length(const string operations[6]) {
+size_t get_max_string_length(const std::string operations[6]) {
     size_t maxLength = 0;
     for (int i = 0; i < 6; i++)
         if (operations[i].length() > maxLength)
@@ -35,7 +35,7 @@ size_t get_max_string_length(const string operations[6]) {
     return maxLength;
 }
 
-void display_menu(const string operations[6]) {
+void display_menu(const std::string operations[6]) {
     const size_t maxLength = get_max_string_length(operations) + 4;
     for (int i = 0; i < 6; i++) {
         printf("\t[%d] %s", i, operations[i].c_str());
@@ -43,13 +43,13 @@ void display_menu(const string operations[6]) {
             printf("\n");
         } else {
             size_t padding = maxLength - operations[i].length();
-            printf("%s", string(padding, ' ').c_str());
+            printf("%s", std::string(padding, ' ').c_str());
         }
     }
 }
 
 int show_main_menu() {
-    const string operations[6] = {
+    const std::string operations[6] = {
         "Sign out", "Check your balance",
         "Withdraw cash", "Deposit cash",
         "Transfer balance", "Change PIN"
@@ -64,7 +64,7 @@ int show_main_menu() {
 }
 
 void check_balance(const Account *const curr_user) {
-    const string string_balance = convert_to_thousand_separated(curr_user->balance);
+    const std::string string_balance = convert_to_thousand_separated(curr_user->balance);
     printf("Your credit is %s EGP\n", string_balance.c_str());
 }
 
@@ -95,7 +95,7 @@ void deposit_cash(Account *const curr_user) {
 }
 
 void transfer_balance(Account *const curr_user) {
-    const string recipient_username = input("the username of the recipient (0 to exit)");
+    const std::string recipient_username = input("the username of the recipient (0 to exit)");
     if (recipient_username != "0") {
         auto *const recipient = get_user(recipient_username);
         if (!recipient) {

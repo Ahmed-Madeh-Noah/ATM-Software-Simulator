@@ -7,9 +7,9 @@ int add(int a, int b);
 
 Account *login();
 
-size_t get_max_string_length(const string operations[6]);
+size_t get_max_string_length(const std::string operations[6]);
 
-void display_menu(const string operations[6]);
+void display_menu(const std::string operations[6]);
 
 int show_main_menu();
 

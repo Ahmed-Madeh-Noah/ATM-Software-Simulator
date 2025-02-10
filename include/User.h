@@ -2,30 +2,28 @@
 #define USERS_H
 
 #include <iostream>
-#include <algorithm>
-
-using namespace std;
+#include <string>
 
 int subtract(int a, int b);
 
 struct Account {
-    string username;
+    std::string username;
     int pin;
     double balance;
 };
 
 extern Account accounts[3];
 
-bool validate_int(const string &input);
+bool validate_int(const std::string &input);
 
-string input(const string &prompt, const string &data_type = "string");
+std::string input(const std::string &prompt, const std::string &data_type = "std::string");
 
-Account *get_user(const string &username);
+Account *get_user(const std::string &username);
 
-string remove_trailing_zeros(const double &balance);
+std::string remove_trailing_zeros(const double &balance);
 
-string convert_to_thousand_separated(const double &balance);
+std::string convert_to_thousand_separated(const double &balance);
 
-bool change_pin_inputs(int &pin, const string &needed_pin = "old");
+bool change_pin_inputs(int &pin, const std::string &needed_pin = "old");
 
 #endif // USERS_H

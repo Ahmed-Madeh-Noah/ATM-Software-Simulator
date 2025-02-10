@@ -11,14 +11,14 @@ Account accounts[3] = {
     {"Noah", 8901, 901.2}
 };
 
-bool validate_int(const string &input) {
+bool validate_int(const std::string &input) {
     return all_of(input.begin(), input.end(), ::isdigit);
 }
 
-string input(const string &prompt, const string &data_type) {
-    string output;
+std::string input(const std::string &prompt, const std::string &data_type) {
+    std::string output;
     printf("Enter %s:", prompt.c_str());
-    getline(cin, output);
+    std::getline(std::cin, output);
     if (output.empty()) {
         printf("Cannot accept an empty input\n");
         return input(prompt, data_type);
@@ -30,15 +30,15 @@ string input(const string &prompt, const string &data_type) {
     return output;
 }
 
-Account *get_user(const string &username) {
+Account *get_user(const std::string &username) {
     for (Account &account: accounts)
         if (account.username == username)
             return &account;
     return nullptr;
 }
 
-string remove_trailing_zeros(const double &balance) {
-    string output = to_string(balance);
+std::string remove_trailing_zeros(const double &balance) {
+    std::string output = std::to_string(balance);
     for (size_t index = output.size() - 1; index > output.find('.') + 1; index--) {
         if (output[index] == '0')
             output.erase(index, 1);
@@ -48,17 +48,17 @@ string remove_trailing_zeros(const double &balance) {
     return output;
 }
 
-string convert_to_thousand_separated(const double &balance) {
-    string string_balance = remove_trailing_zeros(balance);
+std::string convert_to_thousand_separated(const double &balance) {
+    std::string string_balance = remove_trailing_zeros(balance);
     size_t dotPos = string_balance.find('.');
-    for (int index = dotPos; index > 0; index--) {
+    for (size_t index = dotPos; index-- > 0;) {
         if (index != dotPos && (dotPos - index) % 3 == 0)
             string_balance.insert(index, ",");
     }
     return string_balance;
 }
 
-bool change_pin_inputs(int &pin, const string &needed_pin) {
+bool change_pin_inputs(int &pin, const std::string &needed_pin) {
     if (needed_pin == "old")
         pin = stoi(input("your old PIN (0 to exist)", "int"));
     else if (needed_pin == "new")

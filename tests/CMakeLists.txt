@@ -16,3 +16,5 @@ add_test(NAME User_Test COMMAND User_Test)
 add_executable(ATMUtil_Test ATMUtil_Test.cpp)
 target_link_libraries(ATMUtil_Test gtest_main ATMUtil User)
 add_test(NAME ATMUtil_Test COMMAND ATMUtil_Test)
+
+set_target_properties(User_Test ATMUtil_Test PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
