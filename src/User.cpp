@@ -53,7 +53,7 @@ namespace User {
         std::string string_balance = remove_trailing_zeros(balance);
         size_t dotPos = string_balance.find('.');
         for (size_t index = dotPos; index-- > 0;) {
-            if (index != dotPos && (dotPos - index) % 3 == 0)
+            if (index && index != dotPos && (dotPos - index) % 3 == 0)
                 string_balance.insert(index, ",");
         }
         return string_balance;
