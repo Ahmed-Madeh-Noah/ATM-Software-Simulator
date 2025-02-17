@@ -21,7 +21,7 @@ namespace User {
         printf("Enter %s:", prompt.c_str());
         std::getline(std::cin, output);
         if (output.empty()) {
-            printf("Cannot accept an empty input\n");
+            printf("Cannot accept empty input\n");
             return input(prompt, data_type);
         }
         if (data_type == "int" && !validate_int(output)) {
